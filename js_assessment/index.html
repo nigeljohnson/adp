@@ -36,18 +36,32 @@
 
 	<script type="text/javascript">
 
+		// Odd Numbers Filter (No Looping)
+
+		var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 112, 113];
+
+		arr = (function (a) { 
+		if( ! arr.length ) return [] ;
+		var first = arr.shift();
+		arr = arguments.callee(arr);
+		if (first % 2 != 0 ) arr.unshift(first);
+		return arr;
+		}(arr));
+
+		document.write(arr.join(','));
+
 		// Odd Numbers Filter
 
 		// Arry with "Numbers Library"
-		var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 112, 113];
+		// var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 112, 113];
 
 		// Odd Numbers parsed from "Number Library" with "oddNumbers" filter
-		var oddNumbers = arr.filter(function(val) {
-			return 0 != val % 2;
-		});
+		// var oddNumbers = arr.filter(function(val) {
+		// 	return 0 != val % 2;
+		// });
 
 		// Writing out returned numbers from "oddNumbers" filter
-		document.write(oddNumbers);
+		// document.write(oddNumbers);
 
 		// Even Numbers Filter 
 
