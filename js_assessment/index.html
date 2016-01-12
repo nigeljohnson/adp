@@ -2,9 +2,7 @@
 - Line 17: Styling
 - Line 38: Javascript
 - Line 40: Odd Numbers Filter (No Looping)
-- Line 72: Odd Numbers Filter
-- Line 85: Even Numbers Filter
-- Line 98: Vault Boy SVG
+- Line 151: Vault Boy SVG
 -->
 
 <!DOCTYPE html>
@@ -37,6 +35,60 @@
 
 	<script type="text/javascript">
 
+		var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 112, 113];
+		var newArray = [];
+
+		var oddNumbers = function(myArray){
+		  if(myArray && myArray.length){
+		    var first = myArray.shift();
+		    // if even
+		    if (first % 2 != 0 ) {
+		      newArray.push(first);
+		    }
+		    arguments.callee(myArray);
+
+		    //debugger;     
+		  } else {
+		    console.log(newArray);
+		    document.write(newArray.join(', '));
+		  }
+		};
+
+		oddNumbers(arr); // [], null, undefined, [1,2,3,4], arr
+		//logUserIn();
+
+		//DONE HERE BRO!
+
+		//evenNumbers([1,2,3,4,5,6,7,8]); // [], null, undefined, [1,2,3,4], arr
+		//logUserIn();
+
+
+		//var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 112, 113];
+		//var newArray = [];
+
+		//var evenNumbers = function(myArray){
+		  
+		//  if(myArray){
+		//    var first = myArray.shift();
+
+		//    console.log(first);
+		    
+		    // if odd
+		//    if (first % 2 != 0 ) {
+		//      newArray.push(first);
+		//    }
+		    
+		//    if (arr.length) {
+		//      arguments.callee(arr);
+		//    }
+		    
+		//  }
+		//};
+
+		//evenNumbers(arr);
+
+		//document.write(newArray);
+
 		// Odd Numbers Filter (No Looping)
 
 		// shift() is ideal for your situation. shift() removes the first element from an array and returns that element. This method changes the length of the array.
@@ -47,9 +99,9 @@
 
 		// array // [2, 3, 4, 5]
 
-		var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 112, 113];
+		// var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 112, 113];
 
-		arr = (function () {
+		// arr = (function () {
 
 		// If NEW arr length IS NOT equal to arr length, return
 
@@ -57,17 +109,17 @@
 
 		// Loop (Disregarding first set of variables, returning the values of remaining 13)
 
-		if( ! arr.length ) return [] ; // If does not equal length, return. This checks if variable arr exists and if it is, checks if it is a filled array.
+		// if( ! arr.length ) return [] ; // If does not equal length, return. This checks if variable arr exists and if it is, checks if it is a filled array.
 
-		var first = arr.shift(); // Shift: Picks "First" Vaule from Arry / Removes
-		arr = arguments.callee(); // The property refers to the function that is currently being executed
+		// var first = arr.shift(); // Shift: Picks "First" Vaule from Arry / Removes
+		// arr = arguments.callee(); // The property refers to the function that is currently being executed
 
-		if (first % 2 != 0 ) arr.unshift(first); // If "First Number is not divide by 2, Unshift: Places Vaule in front of ARRY
-		return arr;
+		// if (first % 2 != 0 ) arr.unshift(first); // If "First Number is not divide by 2, Unshift: Places Vaule in front of ARRY
+		// return arr;
 
-		}(arr)); //Immediately-Invoked Function Expression, or IIFE for short.
+		// }(arr)); //Immediately-Invoked Function Expression, or IIFE for short.
 
-		document.write(arr.join(', ')); // Join, instead of concat
+		// document.write(arr.join(', ')); // Join, instead of concat
 
 		// Odd Numbers Filter
 
